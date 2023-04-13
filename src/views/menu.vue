@@ -1,12 +1,13 @@
 <template>
-    <div class="home">
-        <router-link v-for="item in state.routes">{{ item.name }}</router-link>
-    </div>
+  <div class="home">
+    <router-link v-for="(item, k) in state.routes" :key="k">{{
+      item.name
+    }}</router-link>
+  </div>
 </template>
-  
+
 <script>
 export default {
-    name: 'page1'
-}
+  name: "MenuPage",
+};
 </script>
-  

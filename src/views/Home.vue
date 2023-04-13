@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div v-for="item in $store.state.routes">
+    <div v-for="(item, k) in $store.state.routes" :key="k">
       <router-link :to="item.path">{{ item.name }}</router-link>
     </div>
     <button @click="loginout">登出</button>
@@ -8,19 +8,19 @@
 </template>
 
 <script>
-import Cookie from "js-cookie"
+import Cookie from "js-cookie";
+
 export default {
-  name: 'home',
-  created() {
-  },
+  name: "HomePage",
+  created() {},
   methods: {
     loginout() {
       Cookie.remove("id");
       Cookie.remove("token");
       localStorage.removeItem("menu");
-      this.$store.dispatch("resetRouter")
-      this.$router.push("/login")
-    }
-  }
-}
+      this.$store.dispatch("resetRouter");
+      this.$router.push("/login");
+    },
+  },
+};
 </script>
